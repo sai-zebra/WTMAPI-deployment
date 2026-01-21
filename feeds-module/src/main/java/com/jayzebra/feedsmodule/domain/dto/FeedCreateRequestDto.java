@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.modulith.NamedInterface;
 
 /**
  * DTO for the POST /feeds request body.
@@ -12,6 +13,7 @@ import jakarta.validation.constraints.NotBlank;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@NamedInterface
 public class FeedCreateRequestDto {
     @NotBlank(message = "Title cannot be empty.")
     private String title;
