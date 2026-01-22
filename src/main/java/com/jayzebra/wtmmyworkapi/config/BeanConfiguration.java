@@ -1,7 +1,9 @@
 package com.jayzebra.wtmmyworkapi.config;
 
 import com.jayzebra.feedsmodule.domain.port.output.FeedNoteRepositoryPort;
+import com.jayzebra.feedsmodule.domain.port.output.FeedOperationRepositoryPort;
 import com.jayzebra.feedsmodule.domain.port.output.FeedRepositoryPort;
+import com.jayzebra.feedsmodule.domain.service.FeedOperationService;
 import com.jayzebra.rtm.domain.port.out.RtmOperationRepositoryPort;
 import com.jayzebra.rtm.domain.service.RtmOperationService;
 import com.jayzebra.feedsmodule.domain.service.FeedNoteService;
@@ -29,8 +31,13 @@ public class BeanConfiguration {
     RtmOperationService rtmOperationService(RtmOperationRepositoryPort rtmOperationRepositoryPort){
         return new RtmOperationService(rtmOperationRepositoryPort);
     }
+    @Bean
     FeedNoteService feedNoteService(FeedNoteRepositoryPort feedNoteRepositoryPort){
         return new FeedNoteService(feedNoteRepositoryPort);
+    }
+    @Bean
+    FeedOperationService feedOperationService(FeedOperationRepositoryPort feedOperationRepositoryPort){
+        return new FeedOperationService(feedOperationRepositoryPort);
     }
 
 
