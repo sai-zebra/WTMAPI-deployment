@@ -10,15 +10,18 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = {
         "com.jayzebra.wtmmyworkapi",       // Scans the main app and its sub-packages (like .config)
         "com.jayzebra.feedsmodule",     // Scans the entire feedsmodule for its components
-        "com.jayzebra.surveys"
+        "com.jayzebra.surveys",
+        "com.jayzebra.rtm"
 })
 @EntityScan(basePackages = {
         "com.jayzebra.feedsmodule.adapter.out.entity",
-        "com.jayzebra.surveys.adapter.output.entity"
+        "com.jayzebra.surveys.adapter.output.entity",
+        "com.jayzebra.rtm.adapter.out.entity"
 })
 @EnableJpaRepositories(basePackages = {
         "com.jayzebra.feedsmodule.adapter.out.repository",
-        "com.jayzebra.surveys.adapter.output.repository"
+        "com.jayzebra.surveys.adapter.output.repository",
+        "com.jayzebra.rtm.adapter.out.repository"
 })
 public class WtmMyWorkApiApplication {
 
