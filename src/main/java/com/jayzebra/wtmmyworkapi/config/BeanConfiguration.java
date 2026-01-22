@@ -1,6 +1,8 @@
 package com.jayzebra.wtmmyworkapi.config;
 
+import com.jayzebra.feedsmodule.domain.port.output.FeedNoteRepositoryPort;
 import com.jayzebra.feedsmodule.domain.port.output.FeedRepositoryPort;
+import com.jayzebra.feedsmodule.domain.service.FeedNoteService;
 import com.jayzebra.surveys.domain.port.output.SurveyRepositoryPort;
 import com.jayzebra.surveys.domain.service.SurveyService;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,11 @@ public class BeanConfiguration {
     @Bean
     SurveyService surveyService(SurveyRepositoryPort surveyRepositoryPort){
         return new SurveyService(surveyRepositoryPort);
+    }
+
+    @Bean
+    FeedNoteService feedNoteService(FeedNoteRepositoryPort feedNoteRepositoryPort){
+        return new FeedNoteService(feedNoteRepositoryPort);
     }
 
 
