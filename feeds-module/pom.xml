@@ -94,6 +94,12 @@
             <version>3.2.4</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId> <!-- This inherits the groupId from your parent pom -->
+            <artifactId>common</artifactId> <!-- The name of your common module -->
+            <version>${project.version}</version> <!-- This inherits the version from your parent pom -->
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>

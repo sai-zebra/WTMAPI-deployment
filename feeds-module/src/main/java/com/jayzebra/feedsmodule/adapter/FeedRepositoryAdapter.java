@@ -1,11 +1,11 @@
 package com.jayzebra.feedsmodule.adapter;
 
+import com.jayzebra.common.exceptions.ResourceNotFoundException;
 import com.jayzebra.feedsmodule.adapter.out.entity.FeedEntity;
 import com.jayzebra.feedsmodule.adapter.out.repository.FeedRepository;
 import com.jayzebra.feedsmodule.domain.dto.FeedCreateRequestDto;
 import com.jayzebra.feedsmodule.domain.dto.FeedResponseDto;
 import com.jayzebra.feedsmodule.domain.dto.FeedUpdateRequestDto;
-import com.jayzebra.feedsmodule.domain.model.Feed;
 import com.jayzebra.feedsmodule.domain.port.output.FeedRepositoryPort;
 import lombok.AllArgsConstructor;
 
@@ -13,7 +13,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -58,7 +57,7 @@ public class FeedRepositoryAdapter implements FeedRepositoryPort {
     @Override
     public FeedResponseDto getFeedById(UUID feedId) {
         // here we fetch the feed by id which is a entity throw exception id feed nt found
-        FeedEntity feed = feedRepository.findById(feedId).orElseThrow(()-> new IllegalArgumentException("Feed not found"));
+        FeedEntity feed = feedRepository.findById(feedId).orElseThrow(()-> new ResourceNotFoundException("Feed not found"));
         //map this entity to dto and return
         return modelMapper.map(feed,FeedResponseDto.class);
 
@@ -68,7 +67,7 @@ public class FeedRepositoryAdapter implements FeedRepositoryPort {
     @Override
     public void updateFeed(UUID feedId, FeedUpdateRequestDto feedUpdateRequestDto) {
         //fetch the feed by its id throw exception if feed not found
-        FeedEntity feed = feedRepository.findById(feedId).orElseThrow(()-> new IllegalArgumentException("Feed not found"));
+        FeedEntity feed = feedRepository.findById(feedId).orElseThrow(()-> new ResourceNotFoundException("Feed not found"));
         //update the title of feed we just fetched
         feed.setTitle(feedUpdateRequestDto.getTitle());
         //update message
