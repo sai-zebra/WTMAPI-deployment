@@ -1,10 +1,10 @@
 package com.jayzebra.rtm.adapter.out.module;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import org.springframework.stereotype.Component;
-import tools.jackson.databind.ObjectMapper;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.util.Map;
 
@@ -23,7 +23,7 @@ public class JsonToMapConverter implements AttributeConverter<Map<String, Object
         }
         try {
             return objectMapper.writeValueAsString(attribute);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | JsonProcessingException e) {
             // Log the error or throw a specific exception if conversion fails
             throw new IllegalArgumentException("Error converting map to JSON string for database", e);
         }
@@ -36,7 +36,11 @@ public class JsonToMapConverter implements AttributeConverter<Map<String, Object
             return null;
         }
         // Use Map.class to deserialize into a generic Map
-        return objectMapper.readValue(dbData, Map.class);
+        try {
+            return objectMapper.readValue(dbData, Map.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

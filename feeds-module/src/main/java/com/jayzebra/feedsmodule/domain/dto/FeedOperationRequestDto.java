@@ -1,12 +1,13 @@
 package com.jayzebra.feedsmodule.domain.dto;
 
 import com.jayzebra.feedsmodule.adapter.out.entity.FeedOperationEntity;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
 @Getter
-
+@Data
 public class FeedOperationRequestDto {
     private FeedOperationType operation;
     private Map<String, Object> payload;

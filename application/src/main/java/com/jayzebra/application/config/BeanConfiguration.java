@@ -1,4 +1,4 @@
-package com.jayzebra.wtmmyworkapi.config;
+package com.jayzebra.application.config;
 
 import com.jayzebra.feedsmodule.domain.port.output.FeedNoteRepositoryPort;
 import com.jayzebra.feedsmodule.domain.port.output.FeedOperationRepositoryPort;
@@ -47,7 +47,4 @@ public class BeanConfiguration {
     UserService userService(UserRepositoryPort userRepositoryPort, ModelMapper modelMapper){
         return new UserService(userRepositoryPort ,modelMapper);
     }
-
-
-
 }

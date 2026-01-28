@@ -1,5 +1,6 @@
 package com.jayzebra.feedsmodule.adapter;
 
+
 import com.jayzebra.common.exceptions.ResourceNotFoundException;
 import com.jayzebra.feedsmodule.adapter.out.entity.FeedEntity;
 import com.jayzebra.feedsmodule.adapter.out.repository.FeedRepository;

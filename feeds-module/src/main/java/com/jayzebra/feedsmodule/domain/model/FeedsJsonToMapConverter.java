@@ -2,8 +2,10 @@ package com.jayzebra.feedsmodule.domain.model;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 import java.util.Map;
 
@@ -14,6 +16,7 @@ public class FeedsJsonToMapConverter implements AttributeConverter<Map<String, O
     // ObjectMapper is a thread-safe object, so it can be a final field.
     private final ObjectMapper objectMapper = new ObjectMapper();
 
+    @SneakyThrows
     @Override
     public String convertToDatabaseColumn(Map<String, Object> attribute) {
         // Convert Map to JSON String for database storage
@@ -28,6 +31,7 @@ public class FeedsJsonToMapConverter implements AttributeConverter<Map<String, O
         }
     }
 
+    @SneakyThrows
     @Override
     public Map<String, Object> convertToEntityAttribute(String dbData) {
         // Convert JSON String from the database back to a Map

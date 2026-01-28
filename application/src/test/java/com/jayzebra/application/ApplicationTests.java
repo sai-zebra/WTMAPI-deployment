@@ -1,10 +1,10 @@
-package com.jayzebra.wtmmyworkapi;
+package com.jayzebra.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class WtmMyWorkApiApplicationTests {
+class ApplicationTests {
 
     @Test
     void contextLoads() {

@@ -47,14 +47,20 @@ public class GlobalExceptionHandler {
                 .map(error -> error.getField() + ": " + error.getDefaultMessage())
                 .collect(Collectors.toList());
 
+        // ===================================================================
+        //  THE FIX IS HERE.
+        //  We are now creating the ErrorResponse using the constructor that
+        //  accepts the 'details' list directly. The problematic 'setDetails'
+        //  line has been removed.
+        // ===================================================================
         ErrorResponse errorResponse = new ErrorResponse(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
                 "Validation Failed",
                 "One or more fields are invalid. See details.",
-                request.getDescription(false).replace("uri=", "")
+                request.getDescription(false).replace("uri=", ""),
+                details // The details list is now passed directly to the constructor
         );
-        errorResponse.setDetails(details); // Set the detailed messages
 
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
