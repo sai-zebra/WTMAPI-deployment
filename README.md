@@ -92,11 +92,14 @@ This decoupling ensures that each module's core logic can be tested in isolation
 The directory structure directly reflects both the Modular Monolith and Hexagonal concepts.
 
 ```text
-src/main/java/com/mywork/
+WTMMyWorkAPI-parent/
 │
-├── Application.java               // Spring Boot entry point
+├── application/                   // Spring Boot entry point module
+│   └── src/main/java/
+│       └── com/jayzebra/application/
+│           └── Application.java
 │
-├── feeds/                         // --- MODULE 1: Feeds ---
+├── feeds-module/                  // --- MODULE 1: Feeds ---
 │   ├── core/                      // THE HEXAGON (No framework dependencies)
 │   │   ├── domain/
 │   │   ├── port/
@@ -114,10 +117,26 @@ src/main/java/com/mywork/
 │       ├── in/
 │       └── out/
 │
-├── shared/                        // Optional: For code shared between modules
-│   └── config/                    // e.g., Global Spring configuration, security
+├── user-module/                   // --- MODULE 3: User ---
+│   ├── core/                      // THE HEXAGON
+│   │   ├── domain/
+│   │   ├── port/
+│   │   └── service/
+│   └── adapters/                  // ADAPTERS
+│       ├── in/
+│       └── out/
 │
-└── ...                            // Other modules...
+├── rtm/                           // --- MODULE 4: RTM ---
+│   └── ...
+│
+├── common/                        // Optional: For code shared between modules
+│   └── ...
+│
+├── .gitignore
+├── mvnw
+├── mvnw.cmd
+└── pom.xml                        // Parent POM for all modules
+
 
 
 ```

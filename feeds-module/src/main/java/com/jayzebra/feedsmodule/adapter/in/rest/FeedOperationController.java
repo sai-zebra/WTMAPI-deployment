@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("feeds/feedId/operations")
+@RequestMapping("feeds/{feedId}/operations")
 @Tag(name = "FeedOperations")
 public class FeedOperationController {
 
