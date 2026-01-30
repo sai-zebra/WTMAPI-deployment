@@ -31,10 +31,7 @@ This project serves as a blueprint for building robust, scalable, and highly mai
     *   [Running Local Builds](#running-local-builds)
     *   [CI/CD Pipeline Overview](#cicd-pipeline-overview)
 6.  [**📜 API Endpoints & Specification**](#-api-endpoints--specification)
-7.  [**🗺️ Future Roadmap**](#️-future-roadmap)
-8.  [**🤝 Contributing**](#-contributing)
-9.  [**📄 License**](#-license)
-10. [**📧 Contact**](#-contact)
+
 
 ---
 
@@ -255,11 +252,17 @@ spring.datasource.hikari.idle-timeout=300000
 
 ### Logging & Observability
 
-To ensure the system is transparent and supportable in production:
+To provide visibility into the application's state, especially for debugging in a live environment, the following features are configured:
 
-*   **Structured Logging**: The application is configured (via `logback-spring.xml`) to output logs in **JSON format**. This allows logs to be easily ingested, parsed, and queried by log aggregation platforms like Splunk or the ELK Stack.
-*   **Application Metrics**: **Spring Boot Actuator** and **Micrometer** are used to expose critical application metrics (JVM health, HTTP request latency, error rates) via the `/actuator/prometheus` endpoint for monitoring with a Prometheus/Grafana stack.
-*   **Health Checks**: The `/actuator/health` endpoint provides a simple up/down status check, essential for load balancers and container orchestration systems.
+*   **Standard Logging**: The application utilizes Spring Boot's default logging framework (Logback). Log output is sent to the console and can be configured in `application.properties` to adjust log levels for specific packages, helping to trace issues without restarting the application.
+
+*   **Live Diagnostics with Spring Boot Actuator**: For real-time debugging and inspection, **Spring Boot Actuator** is configured to expose a wide range of internal endpoints. This provides a direct window into the running application to check its health, view metrics, understand the environment, and more.
+
+*   **Exposed Endpoints for Debugging**: By setting `management.endpoints.web.exposure.include=*`, all Actuator endpoints are made available. This is intentionally done to aid in production debugging. Some of the key endpoints include:
+    *   `/actuator/health`: Provides a simple up/down status of the application and its connections (e.g., to the database).
+    *   `/actuator/env`: Displays the current environment properties, showing exactly what configuration the application is running with.
+    *   `/actuator/metrics`: Allows you to view a list of available metrics and inspect their current values (e.g., `jvm.memory.used`, `hikaricp.connections.active`).
+    *   `/actuator/httptrace`: Shows a trace of the last 100 HTTP request-response pairs, which is invaluable for debugging unexpected client or server behavior.
 
 ---
 
