@@ -318,8 +318,14 @@ Our application is containerized using **Docker** and deployed to **Amazon Web S
 
 Once the application is deployed, you can access the API documentation and interact with the endpoints through Swagger UI.
 
-*   **Swagger UI Link:** `a2532e2402329463b97c7d8badde469c-1899026621.ap-south-1.elb.amazonaws.com/swagger-ui/index.html`
-*   **Password:** `445fa830-41da-4369-aeac-a3eb2b91d06b`
+*   **Swagger UI Link:**
+    ```sh
+     a2532e2402329463b97c7d8badde469c-1899026621.ap-south-1.elb.amazonaws.com/swagger-ui/index.html
+    ```
+*   **Password:** 
+    ```sh
+     445fa830-41da-4369-aeac-a3eb2b91d06b
+    ```
 
 This interface provides a convenient way to explore and test the API in the deployed environment.
 
