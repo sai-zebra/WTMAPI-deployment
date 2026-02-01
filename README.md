@@ -19,6 +19,7 @@ This project serves as a blueprint for building robust, scalable, and highly mai
     *   [Overall Architecture: The Modular Monolith](#overall-architecture-the-modular-monolith)
     *   [Module Architecture: The Hexagonal Approach](#module-architecture-the-hexagonal-approach)
     *   [Project Structure](#project-structure)
+    *   [Workflow Diagram](#workflow-diagram-of-project)
 3.  [**🛠️ System Design & Engineering**](#system-design--engineering-practices)
     *   [Robust Error Handling](#robust-error-handling-strategy)
     *   [Comprehensive Testing Strategy](#project-testing-strategy)
@@ -139,6 +140,10 @@ WTMMyWorkAPI-parent/
 
 
 ```
+
+## Workflow Diagram Of Project
+![Workflow Diagram of Project](assets/image.png)
+
 ---
 
 ## ✨ What This Service Does
@@ -381,4 +386,5 @@ The following table provides a high-level overview of all available endpoints in
 | `POST`   | `/sessions/logout`                | Log a user out of their session |
 
 ---
+
 

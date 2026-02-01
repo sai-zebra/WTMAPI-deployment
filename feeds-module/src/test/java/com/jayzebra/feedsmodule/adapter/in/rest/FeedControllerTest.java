@@ -33,7 +33,7 @@ class FeedControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    // --- MOCK ALL DEPENDENCIES OF THE CONTROLLER ---
+    // MOCK ALL DEPENDENCIES OF THE CONTROLLER
 
     @MockBean
     private CreateFeedUseCase createFeedUseCase;
@@ -47,13 +47,11 @@ class FeedControllerTest {
     @MockBean
     private UpdateFeedUseCase updateFeedUseCase;
 
-    // *** THIS IS THE FIX ***
+
     // Add a @MockBean for ModelMapper as well
     @MockBean
     private ModelMapper modelMapper;
 
-
-    // --- YOUR TESTS (no changes needed here) ---
 
     @Test
     void getAllFeeds_should_return_200_and_feed_list() throws Exception {
