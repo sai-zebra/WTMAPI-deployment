@@ -3,7 +3,7 @@
 [![Architecture](https://img.shields.io/badge/Architecture-Hexagonal-blueviolet)](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 [![Java Version](https://img.shields.io/badge/java-17-blue.svg)](https://www.java.com)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://github.com)
-[![Test Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen.svg)](https://github.com)
+[![Test Coverage](https://img.shields.io/badge/coverage-90%25-brightgreen.svg)](https://github.com)
 
 **An enterprise-grade API for the Workcloud Task Management ecosystem, built with Spring Boot and meticulously designed using Hexagonal Architecture.**
 
@@ -321,7 +321,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/WTMAPI.git
+    https://github.com/JaykumarZebra/WTMAPI.git
     cd WTMAPI
     ```
 
