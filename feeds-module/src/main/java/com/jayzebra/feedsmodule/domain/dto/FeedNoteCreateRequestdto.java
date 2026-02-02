@@ -10,11 +10,9 @@ import java.time.OffsetDateTime;
  * Based on the FeedNoteCreate schema in the OpenAPI specification, using Lombok.
  */
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class FeedNoteCreateRequestdto {
 
     @NotBlank(message = "Message cannot be empty.")

@@ -10,12 +10,10 @@ import java.util.UUID;
  * Based on the FeedNote schema in the OpenAPI specification, using Lombok.
  */
 
-@Getter
-@Setter
+
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
-@ToString
+@Data
 public class FeedNoteResponseDto {
     private UUID id;
     private String message;

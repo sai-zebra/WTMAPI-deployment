@@ -4,12 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 //DTO for requesting feedNote update
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+
 public class FeedNoteUpdateDto {
 
     //Validation to ensure message shouldn't be empty
