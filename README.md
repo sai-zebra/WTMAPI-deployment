@@ -343,7 +343,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ##  Deployment
 
-Our application is containerized using **Docker** and deployed to **Amazon Web Services (AWS)**. The deployment and CI/CD pipeline are managed by **Kubernetes**, which ensures a scalable and resilient infrastructure.
+Our application is containerized using **Docker** and deployed in **EKS**. The deployment and CI/CD pipeline are managed by **Jenkins, and ArgoCD**, which ensures a scalability and high availabiity.
 
 ### Accessing the Deployed Application
 
