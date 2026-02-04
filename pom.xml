@@ -107,9 +107,9 @@
     </dependencies>
 
 
-    <!-- REPLACE YOUR ENTIRE <build> SECTION WITH THIS SIMPLIFIED VERSION -->
+
     <build>
-        <!-- This section defines HOW plugins should be configured -->
+
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -146,7 +146,7 @@
             </plugins>
         </pluginManagement>
 
-        <!-- This section defines WHEN plugins should run -->
+
         <plugins>
             <!-- This tells Maven to run PITest on each module after its tests pass -->
             <plugin>
@@ -156,7 +156,7 @@
                 <executions>
                     <execution>
                         <id>pit-per-module</id>
-                        <phase>verify</phase> <!-- Run after tests -->
+                        <phase>verify</phase>
                         <goals>
                             <goal>mutationCoverage</goal>
                         </goals>
