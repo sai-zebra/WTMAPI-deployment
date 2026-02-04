@@ -5,10 +5,7 @@ import com.zebra.feedsmodule.adapter.out.repository.FeedOperationRepository;
 import com.zebra.feedsmodule.domain.port.output.FeedOperationRepositoryPort;
 import org.springframework.stereotype.Repository;
 
-
  // Output adapter
-
-
 @Repository
 public class FeedOperationRepositoryAdapter implements FeedOperationRepositoryPort {
     private final FeedOperationRepository feedOperationRepository;

@@ -2,7 +2,6 @@ package com.zebra.feedsmodule.domain.port.output;
 
 import com.zebra.feedsmodule.domain.model.FeedNote;
 import org.springframework.modulith.NamedInterface;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

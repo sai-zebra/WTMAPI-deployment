@@ -80,14 +80,9 @@ public class FeedNoteRepositoryAdapter implements FeedNoteRepositoryPort {
                 ))
                 .collect(Collectors.toList());
     }
-
     //function to delete feedNote
     @Override
     public void deleteById(UUID noteId) {
         feedNoteRepository.deleteById(noteId);
     }
-
-
-
-
 }

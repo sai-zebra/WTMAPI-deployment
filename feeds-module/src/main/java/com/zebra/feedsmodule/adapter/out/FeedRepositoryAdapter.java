@@ -9,16 +9,12 @@ import com.zebra.feedsmodule.domain.dto.FeedResponseDto;
 import com.zebra.feedsmodule.domain.dto.FeedUpdateRequestDto;
 import com.zebra.feedsmodule.domain.port.output.FeedRepositoryPort;
 import lombok.AllArgsConstructor;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.UUID;
 
-
  // Output adapter
-
 @AllArgsConstructor
 @Repository
 public class FeedRepositoryAdapter implements FeedRepositoryPort {
