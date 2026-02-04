@@ -7,9 +7,7 @@ import org.springframework.modulith.NamedInterface;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Output port
- **/
+//Output port
 @NamedInterface
 public interface SurveyRepositoryPort {
     Survey saveSurvey(Survey survey);

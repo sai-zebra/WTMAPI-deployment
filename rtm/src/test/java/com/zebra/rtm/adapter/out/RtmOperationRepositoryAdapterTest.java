@@ -8,14 +8,14 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-import static org.mockito.Mockito.*;
+// Unit tests for RtmOperationRepositoryAdapter.
+// This test class verifies that the adapter correctly delegates calls
+//  to the underlying RtmOperationRepository, ensuring high coverage.
 
-/**
- * Unit tests for RtmOperationRepositoryAdapter.
- * This test class verifies that the adapter correctly delegates calls
- * to the underlying RtmOperationRepository, ensuring high coverage.
- */
 class RtmOperationRepositoryAdapterTest {
 
     @Mock

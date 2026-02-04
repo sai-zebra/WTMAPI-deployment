@@ -1,6 +1,5 @@
 package com.zebra.feedsmodule.domain.service;
 
-
 import com.zebra.feedsmodule.domain.model.FeedNote;
 import com.zebra.feedsmodule.domain.port.output.FeedNoteRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,9 +14,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
 class FeedNoteServiceTest {
@@ -34,7 +38,7 @@ class FeedNoteServiceTest {
 
     @Test
     void createFeedNote_should_createAndSaveNote() {
-        // --- ARRANGE ---
+        //ARRANGE
         UUID feedId = UUID.randomUUID();
         String message = "This is a new note.";
         ArgumentCaptor<FeedNote> noteCaptor = ArgumentCaptor.forClass(FeedNote.class);
@@ -45,10 +49,10 @@ class FeedNoteServiceTest {
             return new FeedNote(UUID.randomUUID(), noteToSave.getFeedId(), noteToSave.getMessage(), OffsetDateTime.now());
         });
 
-        // --- ACT ---
+        //ACT
         FeedNote createdNote = feedNoteService.createFeedNote(feedId, message);
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify the save method was called
         verify(feedNoteRepositoryPort).save(noteCaptor.capture());
         FeedNote capturedNote = noteCaptor.getValue();
@@ -65,21 +69,21 @@ class FeedNoteServiceTest {
 
     @Test
     void deleteFeedNote_should_callDeleteByIdOnPort() {
-        // --- ARRANGE ---
+        // ARRANGE
         UUID feedId = UUID.randomUUID();
         UUID noteId = UUID.randomUUID();
 
-        // --- ACT ---
+        // ACT
         feedNoteService.deleteFeedNote(feedId, noteId);
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify that the deleteById method was called with the correct noteId
         verify(feedNoteRepositoryPort, times(1)).deleteById(noteId);
     }
 
     @Test
     void getNotesForFeed_should_returnListOfNotes() {
-        // --- ARRANGE ---
+        // ARRANGE
         UUID feedId = UUID.randomUUID();
         List<FeedNote> expectedNotes = List.of(
                 new FeedNote(UUID.randomUUID(), feedId, "Note 1", OffsetDateTime.now()),
@@ -88,10 +92,10 @@ class FeedNoteServiceTest {
 
         when(feedNoteRepositoryPort.findByFeedId(feedId)).thenReturn(expectedNotes);
 
-        // --- ACT ---
+        // ACT
         List<FeedNote> actualNotes = feedNoteService.getNotesForFeed(feedId);
 
-        // --- ASSERT ---
+        // ASSERT
         assertEquals(2, actualNotes.size());
         assertEquals(expectedNotes, actualNotes);
         verify(feedNoteRepositoryPort, times(1)).findByFeedId(feedId);
@@ -99,7 +103,7 @@ class FeedNoteServiceTest {
 
     @Test
     void updateFeedNote_should_updateAndSaveChanges() {
-        // --- ARRANGE ---
+        //ARRANGE
         UUID feedId = UUID.randomUUID();
         UUID noteId = UUID.randomUUID();
         String originalMessage = "Original message";
@@ -111,10 +115,10 @@ class FeedNoteServiceTest {
         when(feedNoteRepositoryPort.findById(noteId)).thenReturn(Optional.of(existingNote));
         when(feedNoteRepositoryPort.save(any(FeedNote.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // --- ACT ---
+        //  ACT
         FeedNote updatedNote = feedNoteService.updateFeedNote(feedId, noteId, updatedMessage);
 
-        // --- ASSERT ---
+        //  ASSERT
         assertNotNull(updatedNote);
         assertEquals(noteId, updatedNote.getId());
         assertEquals(updatedMessage, updatedNote.getMessage(), "The message should be updated.");
@@ -125,11 +129,11 @@ class FeedNoteServiceTest {
 
     @Test
     void updateFeedNote_should_throwException_whenNoteNotFound() {
-        // --- ARRANGE ---
+        //ARRANGE
         UUID noteId = UUID.randomUUID();
         when(feedNoteRepositoryPort.findById(noteId)).thenReturn(Optional.empty());
 
-        // --- ACT & ASSERT ---
+        // ACT & ASSERT
         assertThrows(RuntimeException.class, () -> {
             feedNoteService.updateFeedNote(UUID.randomUUID(), noteId, "New message");
         });

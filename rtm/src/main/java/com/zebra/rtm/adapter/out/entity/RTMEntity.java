@@ -1,7 +1,5 @@
 package com.zebra.rtm.adapter.out.entity;
 
-// IMPORTANT: This import will fail until you move JsonToMapConverter
-// to a shared module (e.g., 'common') or into the 'rtm' module itself.
 import com.zebra.rtm.adapter.out.model.JsonToMapConverter;
 
 import jakarta.persistence.Convert;
@@ -22,7 +20,6 @@ import java.util.Map;
 @Entity
 public class RTMEntity {
 
-    // Getters and Setters
     @Id
     @NotBlank
     private String id;

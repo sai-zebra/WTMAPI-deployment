@@ -1,7 +1,7 @@
 package com.zebra.surveys.domain.service;
 
 
-import com.jayzebra.common.exceptions.ResourceNotFoundException;
+import com.zebra.common.exceptions.ResourceNotFoundException;
 import com.zebra.surveys.adapter.output.entity.Survey;
 import com.zebra.surveys.adapter.output.entity.SurveyResponse;
 import com.zebra.surveys.domain.dto.SurveyCreateDto;
@@ -13,9 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-/**
- Service - Main logic
- **/
+
+ //Service - Main logic
 @Service
 public class SurveyService implements SurveyUseCase {
 

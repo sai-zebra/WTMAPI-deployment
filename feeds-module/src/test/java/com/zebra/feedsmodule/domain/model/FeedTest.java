@@ -1,4 +1,3 @@
-
 package com.zebra.feedsmodule.domain.model;
 
 import org.junit.jupiter.api.DisplayName;
@@ -9,11 +8,11 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Unit tests for the Feed domain model.
- * This class tests the getters and setters to ensure the data object
- * functions correctly and to satisfy PITest mutation coverage.
- */
+
+// Unit tests for the Feed domain model.
+// This class tests the getters and setters to ensure the data object
+// functions correctly and to satisfy PITest mutation coverage.
+
 class FeedTest {
 
     @Test

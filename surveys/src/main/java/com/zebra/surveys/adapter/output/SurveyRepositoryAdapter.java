@@ -9,9 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * output adaptor
- **/
+//output adaptor
 @Component
 public class SurveyRepositoryAdapter implements SurveyRepositoryPort {
 

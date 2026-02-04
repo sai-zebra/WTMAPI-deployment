@@ -1,6 +1,3 @@
-// Location: feeds-module/src/test/java/com/jayzebra/feedsmodule/adapter/out/FeedNoteRepositoryAdapterTest.java
-// THIS IS THE CORRECTED FILE. PLEASE REPLACE THE OLD ONE.
-
 package com.zebra.feedsmodule.adapter.out;
 
 import com.zebra.feedsmodule.adapter.out.entity.FeedEntity;
@@ -15,8 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
-
-import java.time.OffsetDateTime; // <-- CORRECT IMPORT
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,7 +20,9 @@ import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
 class FeedNoteRepositoryAdapterTest {
 
@@ -178,3 +176,4 @@ class FeedNoteRepositoryAdapterTest {
         verify(feedNoteRepository, times(1)).deleteById(noteId);
     }
 }
+
