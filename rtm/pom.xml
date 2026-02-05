@@ -3,6 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- =================================================================== -->
+    <!--  EDIT 1: Correctly points to YOUR project's parent POM.           -->
+    <!-- =================================================================== -->
     <parent>
         <groupId>com.zebra</groupId>
         <artifactId>WTMMyWorkAPI-parent</artifactId>
@@ -10,12 +13,19 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-
+    <!-- =================================================================== -->
+    <!--  EDIT 2: GroupId and version are now inherited.                   -->
+    <!-- =================================================================== -->
     <artifactId>rtm</artifactId>
     <name>rtm</name>
     <description>Module for RTM (Real-Time Monitoring) logic</description>
 
     <dependencies>
+        <!-- =================================================================== -->
+        <!--  EDIT 3: Simplified dependencies for a library module.            -->
+        <!-- =================================================================== -->
+
+        <!-- Dependency on your own 'common' module (assuming it's needed) -->
         <dependency>
             <groupId>com.zebra</groupId>
             <artifactId>common</artifactId>
@@ -77,5 +87,10 @@
         </dependency>
 
     </dependencies>
+
+    <!--
+    EDIT 4: The <properties>, <dependencyManagement>, and <build> sections have been completely REMOVED.
+    These are all controlled by the parent POM.
+    -->
 
 </project>

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.zebra</groupId>
+        <groupId>com.jayzebra</groupId>
         <artifactId>WTMMyWorkAPI-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- This tells Maven to look for the parent in the folder above -->
@@ -35,23 +35,23 @@
 
         <!-- Your project's other modules -->
         <dependency>
-            <groupId>com.zebra</groupId>
+            <groupId>com.jayzebra</groupId>
             <artifactId>common</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zebra</groupId>
+            <groupId>com.jayzebra</groupId>
             <artifactId>feeds-module</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zebra</groupId>
+            <groupId>com.jayzebra</groupId>
             <artifactId>user-module</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zebra</groupId>
+            <groupId>com.jayzebra</groupId>
             <artifactId>surveys</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.zebra</groupId>
+            <groupId>com.jayzebra</groupId>
             <artifactId>rtm</artifactId>
         </dependency>
 

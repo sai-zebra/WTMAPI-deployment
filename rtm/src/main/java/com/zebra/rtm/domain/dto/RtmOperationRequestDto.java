@@ -1,10 +1,7 @@
 package com.zebra.rtm.domain.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Setter;
-import lombok.Getter;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Map;
 

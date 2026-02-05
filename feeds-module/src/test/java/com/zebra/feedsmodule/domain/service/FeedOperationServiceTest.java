@@ -12,8 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.times;
 
@@ -35,27 +34,27 @@ class FeedOperationServiceTest {
 
     @Test
     void should_correctly_build_and_save_feed_operation() {
-        // ARRANGE
-        // Creating the input DTO for the use case
+        // --- ARRANGE ---
+        // 1. Create the input DTO for the use case
         FeedOperationRequestDto requestDto = new FeedOperationRequestDto();
         requestDto.setOperation(FeedOperationRequestDto.FeedOperationType.CLAIM);
         requestDto.setPayload(Map.of("userId", 123, "notes", "Claiming this task"));
 
-        // Creating an ArgumentCaptor to capture the entity passed to the save method
+        // 2. Create an ArgumentCaptor to capture the entity passed to the save method
         ArgumentCaptor<FeedOperationEntity> entityCaptor = ArgumentCaptor.forClass(FeedOperationEntity.class);
 
-        // ACT
-        // Executing the method under test
+        // --- ACT ---
+        // 3. Execute the method under test
         feedOperationService.performFeedOperation(requestDto);
 
-        // ASSERT
-        // Verifying that the 'save' method on our mocked port was called exactly once
+        // --- ASSERT ---
+        // 4. Verify that the 'save' method on our mocked port was called exactly once
         verify(feedOperationRepositoryPort, times(1)).save(entityCaptor.capture());
 
-        // Getting the captured entity that was passed to the save method
+        // 5. Get the captured entity that was passed to the save method
         FeedOperationEntity savedEntity = entityCaptor.getValue();
 
-        // Asserting that the entity was built correctly by the service
+        // 6. Assert that the entity was built correctly by the service
         assertNotNull(savedEntity.getId(), "ID should be generated");
         assertNotNull(savedEntity.getCreatedAt(), "CreatedAt timestamp should be set");
         assertEquals(FeedOperationEntity.FeedOperationStatus.ACCEPTED, savedEntity.getStatus(), "Status should be ACCEPTED");

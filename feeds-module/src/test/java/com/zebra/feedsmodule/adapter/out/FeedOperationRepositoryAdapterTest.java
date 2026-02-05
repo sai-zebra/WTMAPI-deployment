@@ -8,16 +8,15 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.*;
 
-// Unit tests for FeedOperationRepositoryAdapter.
-// This class ensures that the adapter correctly delegates the save operation
-// to the underlying FeedOperationRepository, achieving full mutation coverage.
-
+/**
+ * Unit tests for FeedOperationRepositoryAdapter.
+ * This class ensures that the adapter correctly delegates the save operation
+ * to the underlying FeedOperationRepository, achieving full mutation coverage.
+ */
 class FeedOperationRepositoryAdapterTest {
 
     @Mock

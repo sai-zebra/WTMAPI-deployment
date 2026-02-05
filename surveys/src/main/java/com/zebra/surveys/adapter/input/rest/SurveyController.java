@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 
- // Controller to manage the operations related to surveys
+/**
+ * Controller to manage the operations related to surveys
+ **/
+
 @RestController
 @RequestMapping("/surveys")
 @Tag(name = "Surveys")

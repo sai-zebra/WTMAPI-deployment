@@ -11,11 +11,11 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
-// Unit tests for the JsonToMapConverter.
-// This test class covers all logical paths in the converter to ensure it behaves
-// as expected and to kill mutations identified by PITest.
-
+/**
+ * Unit tests for the JsonToMapConverter.
+ * This test class covers all logical paths in the converter to ensure it behaves
+ * as expected and to kill mutations identified by PITest.
+ */
 class JsonToMapConverterTest {
 
     private JsonToMapConverter converter;
@@ -26,6 +26,9 @@ class JsonToMapConverterTest {
         converter = new JsonToMapConverter();
     }
 
+    //================================================================================
+    // Tests for the convertToDatabaseColumn method (Map -> JSON String)
+    //================================================================================
 
     @Test
     @DisplayName("Should convert a valid Map to its JSON string representation")
@@ -63,6 +66,11 @@ class JsonToMapConverterTest {
         // Then: The result should be an empty JSON object string
         assertThat(dbData).isEqualTo("{}");
     }
+
+
+    //================================================================================
+    // Tests for the convertToEntityAttribute method (JSON String -> Map)
+    //================================================================================
 
     @Test
     @DisplayName("Should convert a valid JSON string back to a Map")

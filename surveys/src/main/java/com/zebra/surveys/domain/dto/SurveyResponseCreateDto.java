@@ -1,5 +1,6 @@
 package com.zebra.surveys.domain.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
