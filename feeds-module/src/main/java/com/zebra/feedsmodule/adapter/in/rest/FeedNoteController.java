@@ -79,7 +79,7 @@ public class FeedNoteController {
         return ResponseEntity.ok(responseDtos);
     }
 
-    //function to delete feednote
+    //function to delete feed note
     @DeleteMapping("/{noteId}")
     public ResponseEntity<Void> deleteNote(
             @PathVariable UUID feedId,

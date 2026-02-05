@@ -1,6 +1,7 @@
 package com.zebra.surveys.domain.service;
 
 
+
 import com.zebra.common.exceptions.ResourceNotFoundException;
 import com.zebra.surveys.adapter.output.entity.Survey;
 import com.zebra.surveys.adapter.output.entity.SurveyResponse;
@@ -8,6 +9,8 @@ import com.zebra.surveys.domain.dto.SurveyCreateDto;
 import com.zebra.surveys.domain.dto.SurveyResponseCreateDto;
 import com.zebra.surveys.domain.port.input.SurveyUseCase;
 import com.zebra.surveys.domain.port.output.SurveyRepositoryPort;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +21,7 @@ import java.util.UUID;
 public class SurveyService implements SurveyUseCase {
 
     private final SurveyRepositoryPort surveyRepositoryPort;
+    final Logger logger = LoggerFactory.getLogger(SurveyService.class); // Replace YourClassName
 
     public SurveyService(SurveyRepositoryPort surveyRepositoryPort) {
         this.surveyRepositoryPort = surveyRepositoryPort;
@@ -38,7 +42,10 @@ public class SurveyService implements SurveyUseCase {
     public void submitSurveyResponse(String surveyId, SurveyResponseCreateDto responseDto) {
         // Ensure the survey exists before accepting a response
         surveyRepositoryPort.findSurveyById(surveyId)
-                .orElseThrow(() -> new ResourceNotFoundException("Survey not found with id: " + surveyId));
+                .orElseThrow(() ->{
+                    logger.error("Survey not found with id: " + surveyId);
+                  return new ResourceNotFoundException("Survey not found with id: " + surveyId);
+                });
 
         SurveyResponse response = new SurveyResponse();
         response.setId(UUID.randomUUID().toString());
