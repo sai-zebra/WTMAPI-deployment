@@ -14,18 +14,23 @@ import org.springframework.mock.web.MockMultipartFile;
 
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.never;
 
-@ExtendWith(MockitoExtension.class) // 1. Initializes Mockito
+@ExtendWith(MockitoExtension.class) //  Initializes Mockito
 class UserAssetServiceTest {
 
     @Mock
-    private UserRepositoryPort userRepositoryPort; // 2. Mock the external dependency
+    private UserRepositoryPort userRepositoryPort; //  Mock the external dependency
 
     @InjectMocks
-    private UserAssetService userAssetService; // 3. Create an instance of the service and inject the mock
+    private UserAssetService userAssetService; //  Create an instance of the service and inject the mock
 
     @Test
     void uploadUserImage_withValidUserAndFile_shouldUpdateUserAndReturnDto() {
@@ -45,17 +50,17 @@ class UserAssetServiceTest {
         UserAssetUploadResponseDto responseDto = userAssetService.uploadUserImage(userId, mockFile);
 
         // Assert & Verify
-        // 4. Use an ArgumentCaptor to capture the UserEntity passed to the save method
+        // Use an ArgumentCaptor to capture the UserEntity passed to the save method
         ArgumentCaptor<UserEntity> userEntityCaptor = ArgumentCaptor.forClass(UserEntity.class);
         verify(userRepositoryPort).save(userEntityCaptor.capture());
 
         UserEntity capturedUser = userEntityCaptor.getValue();
 
-        // 5. Assert that the captured entity was updated correctly
+        // Assert that the captured entity was updated correctly
         assertNotNull(capturedUser.getProfileImageUrl());
         assertTrue(capturedUser.getProfileImageUrl().contains("/assets/user-images/"));
 
-        // 6. Assert that the returned DTO contains the correct data
+        //  Assert that the returned DTO contains the correct data
         assertEquals(userId, responseDto.getUserId());
         assertEquals(capturedUser.getProfileImageUrl(), responseDto.getNewProfileImageUrl());
     }
@@ -70,7 +75,7 @@ class UserAssetServiceTest {
         when(userRepositoryPort.findById(userId)).thenReturn(Optional.empty());
 
         // Act & Assert
-        // 7. Assert that the correct exception is thrown
+        //  Assert that the correct exception is thrown
         RuntimeException exception = assertThrows(RuntimeException.class, () -> {
             userAssetService.uploadUserImage(userId, mockFile);
         });

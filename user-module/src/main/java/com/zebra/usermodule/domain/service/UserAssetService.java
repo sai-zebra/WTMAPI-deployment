@@ -19,20 +19,20 @@ public class UserAssetService implements UserAssetUseCase {
 
     @Override
     public UserAssetUploadResponseDto uploadUserImage(String userId, MultipartFile imageFile) {
-        // 1. Find the user by calling the other module's repository port
+        //  Find the user by calling the other module's repository port
         UserEntity user = userRepositoryPort.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found with id: " + userId));
 
-        // 2. Logic to store the file (e.g., to cloud storage) and get a URL
+        //  Logic to store the file (e.g., to cloud storage) and get a URL
         String imageUrl = storeFileAndGetUrl(imageFile);
 
-        // 3. Update the user entity object
+        //  Update the user entity object
         user.setProfileImageUrl(imageUrl);
 
-        // 4. Save the updated user entity using the other module's repository port
+        //  Save the updated user entity using the other module's repository port
         userRepositoryPort.save(user);
 
-        // 5. Return a DTO with the new URL
+        //  Return a DTO with the new URL
         return new UserAssetUploadResponseDto(userId, imageUrl);
     }
 

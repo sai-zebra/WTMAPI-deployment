@@ -1,4 +1,4 @@
-// Location: feeds-module/src/test/java/com/jayzebra/feedsmodule/adapter/out/FeedNoteRepositoryAdapterTest.java
+// Location: feeds-module/src/test/java/com/jayzebra/feedsmodule/adapter/out/FeedsNoteRepositoryAdapterTest.java
 // THIS IS THE CORRECTED FILE. PLEASE REPLACE THE OLD ONE.
 
 package com.zebra.feedsmodule.adapter.out;
@@ -24,9 +24,11 @@ import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
-class FeedNoteRepositoryAdapterTest {
+class FeedsNoteRepositoryAdapterTest {
 
     @Mock
     private FeedNoteRepository feedNoteRepository;

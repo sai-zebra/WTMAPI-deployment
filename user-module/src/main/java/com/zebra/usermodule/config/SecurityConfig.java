@@ -13,10 +13,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // 1. Disable CSRF protection for stateless REST APIs
+                //  Disable CSRF protection for stateless REST APIs
                 .csrf(csrf -> csrf.disable())
 
-                // 2. Define authorization rules
+                //  Define authorization rules
                 .authorizeHttpRequests(authz -> authz
                         // You can make specific endpoints public here if needed
                         // .requestMatchers("/public/**").permitAll()
@@ -24,11 +24,11 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
 
-                // 3. Configure the default login form provided by Spring Security
+                //  Configure the default login form provided by Spring Security
                 //    (This also provides a default /login endpoint)
                 .formLogin(form -> form.permitAll())
 
-                // 4. Configure the default logout behavior
+                //  Configure the default logout behavior
                 .logout(logout -> logout.permitAll());
 
         return http.build();

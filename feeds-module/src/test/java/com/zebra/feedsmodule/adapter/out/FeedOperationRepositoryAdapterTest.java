@@ -10,13 +10,16 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.times;
 
-/**
- * Unit tests for FeedOperationRepositoryAdapter.
- * This class ensures that the adapter correctly delegates the save operation
- * to the underlying FeedOperationRepository, achieving full mutation coverage.
- */
+
+//  Unit tests for FeedOperationRepositoryAdapter.
+//  This class ensures that the adapter correctly delegates the save operation
+//  to the underlying FeedOperationRepository, achieving full mutation coverage.
+
 class FeedOperationRepositoryAdapterTest {
 
     @Mock
@@ -45,13 +48,13 @@ class FeedOperationRepositoryAdapterTest {
         FeedOperationEntity savedEntity = feedOperationRepositoryAdapter.save(mockFeedOperationEntity);
 
         // Then:
-        // 1. Verify that the save method of the underlying repository was called exactly once with the correct entity
+        // Verify that the save method of the underlying repository was called exactly once with the correct entity
         verify(feedOperationRepository, times(1)).save(mockFeedOperationEntity);
 
-        // 2. Assert that the adapter returned the same entity that the repository returned
+        // Assert that the adapter returned the same entity that the repository returned
         assertThat(savedEntity).isEqualTo(mockFeedOperationEntity);
 
-        // 3. Verify that no other interactions occurred with the mock repository
+        // Verify that no other interactions occurred with the mock repository
         verifyNoMoreInteractions(feedOperationRepository);
     }
 }

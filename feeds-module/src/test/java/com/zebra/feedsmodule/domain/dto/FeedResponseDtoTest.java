@@ -8,21 +8,21 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Final, robust unit tests for FeedResponseDto.
- * This class is designed to kill all PITest mutations by testing edge cases
- * in equals(), hashCode(), and other Lombok-generated methods.
- */
+
+//  Final, robust unit tests for FeedResponseDto.
+//  This class is designed to kill all PITest mutations by testing edge cases
+//  in equals(), hashCode(), and other Lombok-generated methods.
+
 class FeedResponseDtoTest {
 
-    // --- Common Test Data ---
+    // Common Test Data
     private final UUID id = UUID.randomUUID();
     private final String title = "Test Title";
     private final String message = "Test Message";
     private final String status = "NEW";
     private final OffsetDateTime createdAt = OffsetDateTime.now();
 
-    // --- Basic Constructor and Getter/Setter Tests ---
+    //Basic Constructor and Getter/Setter Tests
 
     @Test
     @DisplayName("AllArgsConstructor should correctly initialize all fields")
@@ -51,7 +51,7 @@ class FeedResponseDtoTest {
         assertThat(dto.getCreatedAt()).isEqualTo(createdAt);
     }
 
-    // --- Tests for equals(), hashCode(), and canEqual() to Kill All Mutants ---
+    //Tests for equals(), hashCode(), and canEqual() to Kill All Mutants
 
     @Test
     @DisplayName("equals should be true for identical objects")

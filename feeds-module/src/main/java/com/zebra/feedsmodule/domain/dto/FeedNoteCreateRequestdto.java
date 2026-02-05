@@ -1,14 +1,11 @@
 package com.zebra.feedsmodule.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-import java.time.OffsetDateTime;
-
-
- //DTO for the POST /feednotes request body.
-
-
+ //DTO for the POST /feednotes request body
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

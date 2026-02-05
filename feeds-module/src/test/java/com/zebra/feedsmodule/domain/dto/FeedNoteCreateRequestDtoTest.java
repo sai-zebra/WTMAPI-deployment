@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Unit tests for FeedNoteCreateRequestdto.
- * This class ensures that Lombok-generated methods (equals, hashCode, toString, etc.)
- * work as expected, achieving full PITest mutation coverage.
- */
-class FeedNoteCreateRequestdtoTest {
+
+// Unit tests for FeedNoteCreateRequestdto.
+// This class ensures that Lombok-generated methods (equals, hashCode, toString, etc.)
+// work as expected, achieving full PITest mutation coverage.
+
+class FeedNoteCreateRequestDtoTest {
 
     @Test
     @DisplayName("Getters and Setters should work correctly")

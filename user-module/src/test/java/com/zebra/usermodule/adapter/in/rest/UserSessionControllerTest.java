@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(UserSessionController.class) // Target the controller
-// 1. Run all tests in this class as an authenticated user with a specific username
+// Run all tests in this class as an authenticated user with a specific username
 @WithMockUser(username = "user-test-123")
 class UserSessionControllerTest {
 
@@ -33,11 +33,11 @@ class UserSessionControllerTest {
 
         // Act & Assert
         mockMvc.perform(post("/sessions/login")
-                        .with(csrf())) // 2. Add CSRF token for the POST request
-                .andExpect(status().isOk()); // 3. Assert the HTTP 200 OK status
+                        .with(csrf())) //  Add CSRF token for the POST request
+                .andExpect(status().isOk()); //  Assert the HTTP 200 OK status
 
         // Verify
-        // 4. Verify that the use case was called with the correct username from the security context
+        //  Verify that the use case was called with the correct username from the security context
         verify(userSessionUseCase).recordLogin(expectedUserId);
     }
 
@@ -49,7 +49,7 @@ class UserSessionControllerTest {
         // Act & Assert
         mockMvc.perform(post("/sessions/logout")
                         .with(csrf())) // Add CSRF token for the POST request
-                .andExpect(status().isNoContent()); // 5. Assert the HTTP 204 No Content status
+                .andExpect(status().isNoContent()); //  Assert the HTTP 204 No Content status
 
         // Verify
         // Verify that the use case was called with the correct username

@@ -1,8 +1,9 @@
 package com.zebra.feedsmodule.domain.dto;
 
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.modulith.NamedInterface;
 
 //Dto for creating feed request
 @Data

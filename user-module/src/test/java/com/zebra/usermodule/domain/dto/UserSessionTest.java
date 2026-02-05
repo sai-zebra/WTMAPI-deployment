@@ -9,7 +9,7 @@ class UserSessionsTest {
 
     @Test
     void testUserSessionsCreationAndGetters() {
-        // 1. Create an instance of UserSessions
+        //  Create an instance of UserSessions
         UserSessions userSessions = new UserSessions();
         assertNotNull(userSessions); // Ensure the object is not null initially
 
@@ -17,14 +17,14 @@ class UserSessionsTest {
         assertNull(userSessions.getUserId());
         assertNull(userSessions.getSessionId());
 
-        // 2. Set values
+        //  Set values
         String expectedUserId = "testUser123";
         String expectedSessionId = "abcdef123456";
 
         userSessions.setUserId(expectedUserId);
         userSessions.setSessionId(expectedSessionId);
 
-        // 3. Retrieve and 4. Assert values
+        //  Retrieve and  Assert values
         assertEquals(expectedUserId, userSessions.getUserId(), "The userId should match the set value.");
         assertEquals(expectedSessionId, userSessions.getSessionId(), "The sessionId should match the set value.");
     }

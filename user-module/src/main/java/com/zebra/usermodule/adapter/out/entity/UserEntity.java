@@ -1,14 +1,16 @@
 package com.zebra.usermodule.adapter.out.entity;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "users") // Good practice to explicitly name the table
+@Table(name = "users")
 public class UserEntity {
 
     @Id

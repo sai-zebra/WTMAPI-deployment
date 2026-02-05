@@ -2,7 +2,11 @@ package com.zebra.usermodule.adapter.in;
 
 import com.zebra.usermodule.domain.dto.UserAssetUploadResponseDto;
 import com.zebra.usermodule.domain.port.in.UserAssetUseCase;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

@@ -1,12 +1,15 @@
 package com.zebra.usermodule.adapter.out.entity;
 
 import jakarta.persistence.Entity;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import org.springframework.modulith.NamedInterface;
 
 import java.time.Instant;

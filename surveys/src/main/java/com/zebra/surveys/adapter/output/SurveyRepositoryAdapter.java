@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * output adaptor
+ * Output adaptor
  **/
 @Component
 public class SurveyRepositoryAdapter implements SurveyRepositoryPort {

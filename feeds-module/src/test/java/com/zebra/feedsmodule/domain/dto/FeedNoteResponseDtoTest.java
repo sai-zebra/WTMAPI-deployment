@@ -1,5 +1,3 @@
-
-
 package com.zebra.feedsmodule.domain.dto;
 
 import org.junit.jupiter.api.DisplayName;
@@ -10,11 +8,11 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Unit tests for FeedNoteResponseDto.
- * This class ensures Lombok-generated methods (equals, hashCode, toString, etc.)
- * work as expected, killing all PITest mutations.
- */
+
+// Unit tests for FeedNoteResponseDto.
+// This class ensures Lombok-generated methods (equals, hashCode, toString, etc.)
+// work as expected, killing all PITest mutations.
+
 class FeedNoteResponseDtoTest {
 
     // Common test data
@@ -64,7 +62,7 @@ class FeedNoteResponseDtoTest {
         assertThat(dto1).isEqualTo(dto2); // This uses .equals()
     }
 
-    // --- NEW TESTS TO KILL SURVIVORS ---
+    // NEW TESTS TO KILL SURVIVORS
 
     @Test
     @DisplayName("equals should return false when comparing with null")
@@ -99,7 +97,7 @@ class FeedNoteResponseDtoTest {
         assertThat(dto1.hashCode()).isNotEqualTo(dto2.hashCode());
     }
 
-    // --- END OF NEW TESTS ---
+    // END OF NEW TESTS
 
     @Test
     @DisplayName("equals should return false for DTOs with different IDs")

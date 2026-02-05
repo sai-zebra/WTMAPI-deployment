@@ -14,13 +14,15 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.multipart.MultipartFile;
 
-// --- CHANGE #1: Import the new annotation ---
 import org.springframework.security.test.context.support.WithMockUser;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.anyString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -38,7 +40,7 @@ class UserAssetControllerTest {
     private UserAssetUseCase userAssetUseCase;
 
     @Test
-    @WithMockUser // --- CHANGE #2: Run this test as an authenticated user ---
+    @WithMockUser
     void uploadUserImage_withValidFile_returns200Ok() throws Exception {
         // Arrange
         String userId = "user-123";
@@ -60,7 +62,7 @@ class UserAssetControllerTest {
     }
 
     @Test
-    @WithMockUser // --- CHANGE #3: Also run this test as an authenticated user ---
+    @WithMockUser
     void uploadUserImage_withEmptyFile_returns400BadRequest() throws Exception {
         // Arrange
         String userId = "user-123";

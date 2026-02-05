@@ -16,7 +16,9 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class FeedServiceTest {
@@ -36,43 +38,43 @@ class FeedServiceTest {
 
     @Test
     void should_call_port_to_create_feed() {
-        // --- ARRANGE ---
+        // ARRANGE
         FeedCreateRequestDto createDto = new FeedCreateRequestDto("Test Title", "Test Message");
 
-        // --- ACT ---
+        // ACT
         feedService.createFeed(createDto);
 
-        // --- ASSERT ---
+        // ASSERT
         // Verify that the save method on the port was called exactly once with the correct DTO
         verify(feedRepositoryPort, times(1)).save(createDto);
     }
 
     @Test
     void should_call_port_to_delete_feed() {
-        // --- ARRANGE ---
+        // ARRANGE
         UUID feedId = UUID.randomUUID();
 
-        // --- ACT ---
+        //ACT
         feedService.deleteFeed(feedId);
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify that the deleteFeed method was called with the correct ID
         verify(feedRepositoryPort, times(1)).deleteFeed(feedId);
     }
 
     @Test
     void should_return_feed_when_getting_by_id() {
-        // --- ARRANGE ---
+        // ARRANGE
         UUID feedId = UUID.randomUUID();
         FeedResponseDto expectedResponse = new FeedResponseDto(feedId, "Title", "Message", "NEW", OffsetDateTime.now());
 
         // Define the behavior of the mock: when getFeedById is called, return our expected response
         when(feedRepositoryPort.getFeedById(feedId)).thenReturn(expectedResponse);
 
-        // --- ACT ---
+        //ACT
         FeedResponseDto actualResponse = feedService.getFeedById(feedId);
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify the port method was called
         verify(feedRepositoryPort, times(1)).getFeedById(feedId);
         // Assert that the service returned the object it received from the port
@@ -81,7 +83,7 @@ class FeedServiceTest {
 
     @Test
     void should_return_all_feeds() {
-        // --- ARRANGE ---
+        //ARRANGE
         List<FeedResponseDto> expectedFeeds = List.of(
                 new FeedResponseDto(UUID.randomUUID(), "Feed 1", "Msg 1", "NEW", OffsetDateTime.now()),
                 new FeedResponseDto(UUID.randomUUID(), "Feed 2", "Msg 2", "CLAIMED", OffsetDateTime.now())
@@ -90,10 +92,10 @@ class FeedServiceTest {
         // Define the mock behavior
         when(feedRepositoryPort.getAllFeeds()).thenReturn(expectedFeeds);
 
-        // --- ACT ---
+        //ACT
         List<FeedResponseDto> actualFeeds = feedService.getAllFeeds();
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify the port method was called
         verify(feedRepositoryPort, times(1)).getAllFeeds();
         // Assert that the service returned the list it received from the port
@@ -102,14 +104,14 @@ class FeedServiceTest {
 
     @Test
     void should_call_port_to_update_feed() {
-        // --- ARRANGE ---
+        //ARRANGE
         UUID feedId = UUID.randomUUID();
         FeedUpdateRequestDto updateDto = new FeedUpdateRequestDto("Updated Title", "Updated Message");
 
-        // --- ACT ---
+        //ACT
         feedService.updateFeed(feedId, updateDto);
 
-        // --- ASSERT ---
+        //ASSERT
         // Verify that the updateFeed method was called with the correct ID and DTO
         verify(feedRepositoryPort, times(1)).updateFeed(feedId, updateDto);
     }

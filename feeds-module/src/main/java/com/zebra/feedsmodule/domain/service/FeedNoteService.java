@@ -8,32 +8,34 @@ import com.zebra.feedsmodule.domain.port.input.GetFeedNoteUseCase;
 import com.zebra.feedsmodule.domain.port.input.UpdateFeedNoteUseCase;
 import com.zebra.feedsmodule.domain.port.output.FeedNoteRepositoryPort;
 import jakarta.transaction.Transactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * This class implements the use cases for creating, deleting, getting, and updating feed notes.
- * It acts as a primary entry point for any feed note related business logic.
- */
+
+//This class implements the use cases for creating, deleting, getting, and updating feed notes.
+//It acts as a primary entry point for any feed note related business logic.
+
 
 @Service
 public class FeedNoteService implements CreateFeedNoteUseCase, DeleteFeedNoteUseCase, GetFeedNoteUseCase, UpdateFeedNoteUseCase {
 
     //output port object
     private final FeedNoteRepositoryPort feedNoteRepositoryPort;
-
+    final Logger logger = LoggerFactory.getLogger(FeedNoteService.class); // Replace YourClassName
 
     public FeedNoteService(FeedNoteRepositoryPort feedNoteRepositoryPort) {
         this.feedNoteRepositoryPort = feedNoteRepositoryPort;
     }
 
-    /**
-     * Creates a new feed note.
-     * @param feedId The ID of the feed to which this note belongs.
-     * @param message The content of the note.
-     * @return The newly created FeedNote.
-     */
+
+//      Creates a new feed note.
+//      @param feedId The ID of the feed to which this note belongs.
+//      @param message The content of the note.
+//      @return The newly created FeedNote.
+
     @Override
     public FeedNote createFeedNote(UUID feedId, String message) {
         FeedNote newNote = FeedNote.create(feedId, message);
@@ -60,7 +62,10 @@ public class FeedNoteService implements CreateFeedNoteUseCase, DeleteFeedNoteUse
     public FeedNote updateFeedNote(UUID feedId, UUID noteId, String newMessage) {
         FeedNote existingNote = feedNoteRepositoryPort.findById(noteId)
                 // If the note is not found, a RuntimeException is thrown
-                .orElseThrow(() -> new ResourceNotFoundException("Note not found with ID: " + noteId));
+                .orElseThrow(() ->{
+                    logger.error("Feed not found with id "+feedId);
+                   return new ResourceNotFoundException("Note not found with ID: " + noteId);
+                });
         existingNote.updateMessage(newMessage);
         // The updated note is saved back to the repository.
         return feedNoteRepositoryPort.save(existingNote);

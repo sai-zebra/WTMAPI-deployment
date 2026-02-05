@@ -1,4 +1,3 @@
-// ADD THIS NEW FILE TO YOUR PROJECT.
 package com.zebra.usermodule.config;
 
 import org.junit.jupiter.api.DisplayName;
@@ -10,12 +9,11 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Integration tests for the SecurityConfig.
- * This class ensures that the Spring Security configuration loads correctly
- * and that the SecurityFilterChain bean is properly created.
- * This directly addresses the SURVIVED mutant in securityFilterChain.
- */
+ // Integration tests for the SecurityConfig.
+ // This class ensures that the Spring Security configuration loads correctly
+ // and that the SecurityFilterChain bean is properly created.
+ // This directly addresses the SURVIVED mutant in securityFilterChain.
+
 @SpringBootTest
 class SecurityConfigTest {
 

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.jayzebra</groupId>
+        <groupId>com.zebra</groupId>
         <artifactId>WTMMyWorkAPI-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- This tells Maven to look for the parent in the folder above -->
@@ -27,25 +27,31 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
+
+
         <!-- Your project's other modules -->
         <dependency>
-            <groupId>com.jayzebra</groupId>
+            <groupId>com.zebra</groupId>
             <artifactId>common</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.jayzebra</groupId>
+            <groupId>com.zebra</groupId>
             <artifactId>feeds-module</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.jayzebra</groupId>
+            <groupId>com.zebra</groupId>
             <artifactId>user-module</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.jayzebra</groupId>
+            <groupId>com.zebra</groupId>
             <artifactId>surveys</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.jayzebra</groupId>
+            <groupId>com.zebra</groupId>
             <artifactId>rtm</artifactId>
         </dependency>
 

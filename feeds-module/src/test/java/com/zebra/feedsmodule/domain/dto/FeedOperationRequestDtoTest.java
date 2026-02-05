@@ -1,5 +1,3 @@
-
-
 package com.zebra.feedsmodule.domain.dto;
 
 import org.junit.jupiter.api.DisplayName;
@@ -9,13 +7,13 @@ import java.util.Collections;
 import static com.zebra.feedsmodule.domain.dto.FeedOperationRequestDto.FeedOperationType;
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Final, robust unit tests for FeedOperationRequestDto.
- * This class is designed to kill all PITest mutations for the DTO.
- */
+
+// Final, robust unit tests for FeedOperationRequestDto.
+// This class is designed to kill all PITest mutations for the DTO.
+
 class FeedOperationRequestDtoTest {
 
-    // --- Basic Getter/Setter and Constructor Tests ---
+    // Basic Getter/Setter and Constructor Tests
 
     @Test
     @DisplayName("Setters and Getters should work correctly")
@@ -35,7 +33,7 @@ class FeedOperationRequestDtoTest {
         assertThat(dto.getPayload()).containsEntry("key", "value");
     }
 
-    // --- Tests for equals(), hashCode(), and canEqual() to kill all mutants ---
+    //Tests for equals(), hashCode(), and canEqual() to kill all mutants
 
     @Test
     @DisplayName("equals should be true for identical objects")

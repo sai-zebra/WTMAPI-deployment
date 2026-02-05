@@ -13,11 +13,11 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-/**
- * Unit tests for the FeedsJsonToMapConverter.
- * This class ensures all conversion logic is tested, including edge cases,
- * to achieve full mutation coverage.
- */
+
+//  Unit tests for the FeedsJsonToMapConverter.
+//  This class ensures all conversion logic is tested, including edge cases,
+//  to achieve full mutation coverage.
+
 class FeedsJsonToMapConverterTest {
 
     private FeedsJsonToMapConverter converter;
@@ -27,7 +27,7 @@ class FeedsJsonToMapConverterTest {
         converter = new FeedsJsonToMapConverter();
     }
 
-    // --- Tests for convertToDatabaseColumn (Map -> JSON) ---
+    // Tests for convertToDatabaseColumn (Map -> JSON) ---
 
     @Test
     @DisplayName("convertToDatabaseColumn should correctly convert a non-empty Map to a JSON string")

@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * Unit tests for FeedCreateRequestDto.
- * This class ensures that Lombok-generated methods (equals, hashCode, toString, etc.)
- * work as expected, achieving full PITest mutation coverage.
- */
+
+// Unit tests for FeedCreateRequestDto.
+// This class ensures that Lombok-generated methods (equals, hashCode, toString, etc.)
+// work as expected, achieving full PITest mutation coverage.
+
 class FeedCreateRequestDtoTest {
 
     @Test

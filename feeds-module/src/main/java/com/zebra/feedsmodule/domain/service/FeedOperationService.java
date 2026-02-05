@@ -10,11 +10,11 @@ import org.springframework.stereotype.Service;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
-/**
- * This service class implements the use case for handling feed operations.
- * It's responsible for processing requests to perform operations on a feed,
- * creating a record of that operation.
- */
+
+//  This service class implements the use case for handling feed operations.
+//  It's responsible for processing requests to perform operations on a feed,
+//  creating a record of that operation.
+
 @Service
 public class FeedOperationService implements FeedOperationUseCase {
 
