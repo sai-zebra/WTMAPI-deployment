@@ -8,21 +8,21 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //Main application class
 
-@SpringBootApplication(scanBasePackages = "com.jayzebra")
+@SpringBootApplication(scanBasePackages = "com.zebra")
 
 @EntityScan(basePackages = {
-        "com.jayzebra.feedsmodule.adapter.out.entity",
-        "com.jayzebra.surveys.adapter.output.entity",
-        "com.jayzebra.rtm.adapter.out.entity",
-        "com.jayzebra.usermodule.adapter.out.entity"
+        "com.zebra.feedsmodule.adapter.out.entity",
+        "com.zebra.surveys.adapter.output.entity",
+        "com.zebra.rtm.adapter.out.entity",
+        "com.zebra.usermodule.adapter.out.entity"
 })
 
 // Similarly, you MUST explicitly tell Spring Data JPA where to find your Repository interfaces.
 @EnableJpaRepositories(basePackages = {
-        "com.jayzebra.feedsmodule.adapter.out.repository",
-        "com.jayzebra.surveys.adapter.output.repository",
-        "com.jayzebra.rtm.adapter.out.repository",
-        "com.jayzebra.usermodule.adapter.out.repository"
+        "com.zebra.feedsmodule.adapter.out.repository",
+        "com.zebra.surveys.adapter.output.repository",
+        "com.zebra.rtm.adapter.out.repository",
+        "com.zebra.usermodule.adapter.out.repository"
 })
 public class Application {
 

@@ -1,8 +1,7 @@
 package com.zebra.surveys.domain.port.input;
 
-/**
- * Input port
- **/
+//Input port
+
 import com.zebra.surveys.adapter.output.entity.Survey;
 import com.zebra.surveys.domain.dto.SurveyCreateDto;
 import com.zebra.surveys.domain.dto.SurveyResponseCreateDto;

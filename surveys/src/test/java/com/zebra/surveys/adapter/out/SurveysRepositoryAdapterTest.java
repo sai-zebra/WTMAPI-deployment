@@ -18,13 +18,15 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.times;
 
-/**
- * Unit tests for SurveyRepositoryAdapter.
- * This class ensures that the adapter correctly delegates all method calls
- * to its underlying repositories, thus satisfying mutation testing requirements.
- */
+
+//  Unit tests for SurveyRepositoryAdapter.
+//  This class ensures that the adapter correctly delegates all method calls
+//  to its underlying repositories, thus satisfying mutation testing requirements.
+
 class SurveyRepositoryAdapterTest {
 
     @Mock
