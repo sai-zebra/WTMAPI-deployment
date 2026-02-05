@@ -17,14 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 
-@ExtendWith(MockitoExtension.class) // 1. Initializes Mockito
+@ExtendWith(MockitoExtension.class) // Initializes Mockito
 class RtmOperationServiceTest {
 
     @Mock
-    private RtmOperationRepositoryPort rtmOperationRepositoryPort; // 2. Mocks the dependency
+    private RtmOperationRepositoryPort rtmOperationRepositoryPort; // Mocks the dependency
 
     @InjectMocks
-    private RtmOperationService rtmOperationService; // 3. Injects the mock into the service
+    private RtmOperationService rtmOperationService; //Injects the mock into the service
 
     @Test
     void performRtmOperation_shouldCreateAndSaveRtmEntity() {
@@ -40,16 +40,16 @@ class RtmOperationServiceTest {
 
         // Assert and Verify
 
-        // 4. Create an ArgumentCaptor to capture the entity passed to the save method
+        // Create an ArgumentCaptor to capture the entity passed to the save method
         ArgumentCaptor<RTMEntity> entityCaptor = ArgumentCaptor.forClass(RTMEntity.class);
 
-        // 5. Verify that the save method was called exactly once
+        // Verify that the save method was called exactly once
         verify(rtmOperationRepositoryPort).save(entityCaptor.capture());
 
-        // 6. Get the captured entity
+        // Get the captured entity
         RTMEntity capturedEntity = entityCaptor.getValue();
 
-        // 7. Assert that the entity's properties are set correctly
+        // Assert that the entity's properties are set correctly
         assertNotNull(capturedEntity.getId());
         assertNotNull(capturedEntity.getCreatedAt());
         assertEquals(RTMEntity.OperationStatus.ACCEPTED, capturedEntity.getStatus());
