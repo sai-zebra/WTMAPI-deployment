@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: 639493421170.dkr.ecr.eu-north-1.amazonaws.com/backend:2
+  repository: 639493421170.dkr.ecr.eu-north-1.amazonaws.com/backend:4
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
